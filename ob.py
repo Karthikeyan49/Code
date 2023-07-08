@@ -1,14 +1,15 @@
 import openpyxl
+import load
 c1h=0
 c2h=0
 c3l=0
 c4l=0
 candel=False
 candelnext=False
-path = "/home/karthikeyan/vscode/python/5-15 TO 7-8.xlsx"
+path = load.path
 wb_obj = openpyxl.load_workbook(path)
 sheet_obj = wb_obj.active
-for i in range(2,sheet_obj.max_row-3):
+for i in range(2,sheet_obj.max_row-5):
     if(float(sheet_obj["B"+str(i)].value)<float(sheet_obj["E"+str(i)].value)):
         candel=False #green
     else :
