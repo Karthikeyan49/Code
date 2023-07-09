@@ -13,4 +13,4 @@ df = yf.download("^NSEI", start="2023-05-15", end="2023-07-08", interval="5m")
 # df.index.tolist
 #  saving the excel
 # df.to_excel(file_name)
-df.to_csv('file1.csv')
+df.to_csv('/home/karthikeyan/vscode/py/d/file1.csv')

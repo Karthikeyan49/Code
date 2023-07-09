@@ -11,22 +11,22 @@ wb_obj = openpyxl.load_workbook(path)
 sheet_obj = wb_obj.active
 for i in range(2,sheet_obj.max_row-5):
     if(float(sheet_obj["B"+str(i)].value)<float(sheet_obj["E"+str(i)].value)):
-        candel=False #green
+        candel=True #green
     else :
-        candel=True   #red
+        candel=False   #red
     if(float(sheet_obj["B"+str(i+1)].value)>float(sheet_obj["E"+str(i+1)].value)):
-        candelnext=False#red
+        candelnext=True#red
     else:
-        candelnext=True#green
+        candelnext=False#green
     if(candel):
         if(candelnext):
-            c1h=float(sheet_obj["C"+str(i)].value)
-            c2h=float(sheet_obj["C"+str(i+1)].value)
-            c3l=float(sheet_obj["D"+str(i+2)].value)
-            c4l=float(sheet_obj["D"+str(i+3)].value)
-            if(c1h < c3l):
+            c1l=float(sheet_obj["D"+str(i)].value)
+            c2l=float(sheet_obj["D"+str(i+1)].value)
+            c3h=float(sheet_obj["C"+str(i+2)].value)
+            c4h=float(sheet_obj["C"+str(i+3)].value)
+            if(c1l > c3h):
                 sheet_obj["J"+str(i)].value=1
-            elif(c2h<c4l):
+            elif(c2l > c4h):
                 sheet_obj["J"+str(i+1)].value=1
     
 wb_obj.save(path)
